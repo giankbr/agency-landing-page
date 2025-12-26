@@ -9,10 +9,10 @@ export const Footer = () => {
     product: [
       { label: 'Case Studies', to: '/case-studies' },
       { label: 'Process', to: '/process' },
-      { label: 'Studio', to: '/studio' },
+      { label: 'Blog', to: '/blog' },
     ],
     company: [
-      { label: 'About', to: '/studio' },
+      { label: 'About', to: '/blog' },
       { label: 'Contact', to: '/contact' },
       { label: 'Careers', to: '#', badge: 'Hiring' },
       { label: 'Blog', to: '#' },

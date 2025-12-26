@@ -25,7 +25,7 @@ export const Navbar = () => {
           <Link to="/" className="hover:text-primary flex items-center gap-1 transition-colors">Home</Link>
           <Link to="/case-studies" className="hover:text-primary flex items-center gap-1 transition-colors">Case Studies <span className="bg-accent text-white text-[10px] px-2 py-0.5 rounded-full">New</span></Link>
           <Link to="/process" className="hover:text-primary transition-colors">Process</Link>
-          <Link to="/studio" className="hover:text-primary transition-colors">Studio</Link>
+          <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
         </div>
 
         {/* CTA */}
@@ -47,7 +47,7 @@ export const Navbar = () => {
           <Link to="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-gray-800 p-2 hover:bg-gray-50 rounded-lg">Home</Link>
           <Link to="/case-studies" onClick={() => setIsOpen(false)} className="text-lg font-medium text-gray-800 p-2 hover:bg-gray-50 rounded-lg">Case Studies</Link>
           <Link to="/process" onClick={() => setIsOpen(false)} className="text-lg font-medium text-gray-800 p-2 hover:bg-gray-50 rounded-lg">Process</Link>
-          <Link to="/studio" onClick={() => setIsOpen(false)} className="text-lg font-medium text-gray-800 p-2 hover:bg-gray-50 rounded-lg">Studio</Link>
+          <Link to="/blog" onClick={() => setIsOpen(false)} className="text-lg font-medium text-gray-800 p-2 hover:bg-gray-50 rounded-lg">Blog</Link>
           <div className="h-px bg-gray-100 my-2"></div>
           <Link to="/contact" onClick={() => setIsOpen(false)} className="w-full"><Button className="w-full">Start Project</Button></Link>
         </div>
