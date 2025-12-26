@@ -1,0 +1,23 @@
+{
+  "name": "sengiku-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "preview": "pnpm --filter web preview",
+    "clean": "pnpm -r exec rm -rf node_modules dist .turbo"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
