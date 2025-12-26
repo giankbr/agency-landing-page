@@ -1,19 +1,18 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sengiku Studio - Web Development Agency</title>
-    <meta name="description" content="Premium web development agency building scalable digital experiences.">
-    
+    <meta name="description" content="Premium web development agency building scalable digital experiences." />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,7 +20,7 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Urbanist', 'Plus Jakarta Sans', 'sans-serif'],
               display: ['Satoshi', 'sans-serif'],
             },
             colors: {
@@ -30,15 +29,15 @@
               primary: '#0A0A0A',
               accent: '#E1443A', // Red/Orange from the design
               border: '#EBECEF',
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      };
     </script>
     <style>
       body {
-        background-color: #F6F7F8;
-        font-family: 'Inter', sans-serif;
+        background-color: #f6f7f8;
+        font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       .font-display {
@@ -52,24 +51,47 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      /* Marquee Animation */
+      @keyframes marquee-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes marquee-right {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      .animate-marquee-left {
+        animation: marquee-left linear infinite;
+      }
+      .animate-marquee-right {
+        animation: marquee-right linear infinite;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "react-dom": "https://esm.sh/react-dom@18.2.0?deps=react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?deps=react@18.2.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
-    "@remix-run/router": "https://esm.sh/@remix-run/router@1.15.3",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+          "react-dom": "https://esm.sh/react-dom@18.2.0?deps=react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?deps=react@18.2.0",
+          "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
+          "@remix-run/router": "https://esm.sh/@remix-run/router@1.15.3",
+          "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

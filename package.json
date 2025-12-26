@@ -11,9 +11,13 @@
     "dev": "pnpm --filter web dev",
     "build": "pnpm --filter web build",
     "preview": "pnpm --filter web preview",
-    "clean": "pnpm -r exec rm -rf node_modules dist .turbo"
+    "clean": "pnpm -r exec rm -rf node_modules dist .turbo",
+    "commitlint": "commitlint --edit"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "husky": "^9.1.7",
     "typescript": "~5.8.2"
   },
   "engines": {
