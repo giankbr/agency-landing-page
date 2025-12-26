@@ -11,11 +11,13 @@ export const Process = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-white">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
+    <section className="py-32 px-4 bg-white relative">
+      {/* Subtle transition gradient from top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background/50 via-transparent to-transparent pointer-events-none"></div>
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 relative z-10">
         <div className="md:w-1/3 md:sticky md:top-32 h-fit">
           <RevealOnScroll>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">Proven engineering process.<br/><span className="text-gray-400">That ships code.</span></h2>
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6">Proven engineering process.<br/><span className="text-gray-400">That ships code.</span></h2>
             <p className="text-gray-500 mb-8">We treat your product with the engineering rigor it deserves, ensuring security, speed, and scalability.</p>
             <Link to="/contact"><Button>Start Project</Button></Link>
           </RevealOnScroll>

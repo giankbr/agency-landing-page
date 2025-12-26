@@ -14,7 +14,9 @@ const logos = [
 
 export const Logos = () => {
   return (
-    <section className="py-12 border-y border-gray-200 bg-white/50">
+    <section className="py-16 border-y border-gray-200 bg-white/50 relative">
+      {/* Subtle transition gradient */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent via-white/30 to-transparent pointer-events-none"></div>
       <div className="container mx-auto px-4">
         <RevealOnScroll delay={200}>
           <p className="text-sm text-gray-500 mb-8 font-medium uppercase tracking-wider text-center">

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Github, Twitter, Linkedin, Dribbble, ExternalLink } from 'lucide-react';
+import { Github, Twitter, Linkedin, Dribbble, ExternalLink } from 'lucide-react';
 import { RevealOnScroll } from '../ui';
-import { Button } from '../ui';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,63 +31,13 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-white border-t border-gray-100 mt-20 overflow-hidden">
+    <footer className="relative bg-white border-t border-gray-100 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* CTA Section */}
-        <RevealOnScroll>
-          <div className="pt-20 pb-16 border-b border-gray-100">
-            <div className="max-w-3xl mx-auto text-center">
-              <RevealOnScroll delay={100} direction="fade">
-                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                  </span>
-                  <span className="text-xs font-semibold">Accepting new clients for Q2 2025</span>
-                </div>
-              </RevealOnScroll>
-              
-              <RevealOnScroll delay={200}>
-                <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-primary">
-                  Ready to build something{' '}
-                  <span className="relative inline-block">
-                    <span className="relative z-10">amazing?</span>
-                    <span className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -rotate-1"></span>
-                  </span>
-                </h2>
-              </RevealOnScroll>
-              
-              <RevealOnScroll delay={300}>
-                <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-                  Let's discuss your project and see how we can help bring your vision to life.
-                </p>
-              </RevealOnScroll>
-              
-              <RevealOnScroll delay={400}>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Link to="/contact">
-                    <Button className="group">
-                      Start a Project
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                  <Link to="/contact">
-                    <Button variant="outline" className="group">
-                      <Mail size={18} />
-                      Book Consultation
-                    </Button>
-                  </Link>
-                </div>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </RevealOnScroll>
-
         {/* Main Footer Content */}
-        <div className="py-16">
+        <div className="pt-20 py-16 bg-white">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
             {/* Brand Section */}
             <div className="md:col-span-4 lg:col-span-5">

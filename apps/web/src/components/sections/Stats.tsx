@@ -8,11 +8,13 @@ export const Stats = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-32 px-4 bg-background relative">
+      {/* Subtle transition gradient from top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/50 via-transparent to-transparent pointer-events-none"></div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-16 text-center">
            <RevealOnScroll>
-             <h2 className="font-display font-bold text-4xl md:text-5xl mb-4">Sengiku makes it scalable,<br/><span className="text-gray-400">and delivers results.</span></h2>
+             <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-4">Sengiku makes it scalable,<br/><span className="text-gray-400">and delivers results.</span></h2>
            </RevealOnScroll>
         </div>
         <div className="grid md:grid-cols-3 gap-6">

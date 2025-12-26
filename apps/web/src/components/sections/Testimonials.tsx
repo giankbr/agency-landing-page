@@ -35,12 +35,14 @@ export const Testimonials = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-24 px-4 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-32 px-4 bg-gray-50 overflow-hidden relative">
+      {/* Subtle transition gradient from top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/50 via-transparent to-transparent pointer-events-none"></div>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left Side: Static Text */}
         <RevealOnScroll direction="right">
           <div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">We're loved.<br/><span className="text-gray-400">For our code quality.</span></h2>
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-6">We're loved.<br/><span className="text-gray-400">For our code quality.</span></h2>
             <RevealOnScroll delay={100} direction="fade">
               <p className="text-gray-500 text-lg mb-8 max-w-md">
                 See what our partners have to say about their experience working with Sengiku to build their digital products.

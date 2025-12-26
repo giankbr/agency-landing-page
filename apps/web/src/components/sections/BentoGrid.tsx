@@ -5,12 +5,14 @@ import { Button } from '../ui';
 
 export const BentoGrid = () => {
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-32 px-4 bg-background relative">
+      {/* Subtle transition gradient from top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/50 via-transparent to-transparent pointer-events-none"></div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <RevealOnScroll>
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mb-4">From idea to scale.<br/><span className="text-gray-400">We code your vision.</span></h2>
+              <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-4">From idea to scale.<br/><span className="text-gray-400">We code your vision.</span></h2>
               <p className="text-gray-500 max-w-lg">Full-stack development solutions tailored to your technical requirements.</p>
             </div>
             <Link to="/contact"><Button>Start A Project</Button></Link>

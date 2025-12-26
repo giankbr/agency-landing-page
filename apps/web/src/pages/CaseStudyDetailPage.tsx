@@ -53,7 +53,7 @@ export const CaseStudyDetailPage = () => {
                     </span>
                   ))}
                 </div>
-                <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-primary mb-6 leading-tight">
+                <h1 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-primary mb-6 leading-tight">
                   {caseStudy.title}
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed mb-8">
@@ -90,14 +90,16 @@ export const CaseStudyDetailPage = () => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Challenge Section */}
-        <section className="mb-24">
+        <section className="mb-32 relative">
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none"></div>
+          <div className="relative z-10">
           <RevealOnScroll>
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center">
                   <Zap className="text-red-600" size={20} />
                 </div>
-                <h2 className="font-display font-bold text-3xl md:text-4xl">{caseStudy.challenge.title}</h2>
+                <h2 className="font-display font-extrabold text-3xl md:text-4xl">{caseStudy.challenge.title}</h2>
               </div>
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
                 {caseStudy.challenge.description}
@@ -117,17 +119,20 @@ export const CaseStudyDetailPage = () => {
               </RevealOnScroll>
             ))}
           </div>
+          </div>
         </section>
 
         {/* Solution Section */}
-        <section className="mb-24">
+        <section className="mb-32 relative">
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none"></div>
+          <div className="relative z-10">
           <RevealOnScroll>
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center">
                   <CheckCircle className="text-green-600" size={20} />
                 </div>
-                <h2 className="font-display font-bold text-3xl md:text-4xl">{caseStudy.solution.title}</h2>
+                <h2 className="font-display font-extrabold text-3xl md:text-4xl">{caseStudy.solution.title}</h2>
               </div>
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
                 {caseStudy.solution.description}
@@ -166,13 +171,16 @@ export const CaseStudyDetailPage = () => {
               </div>
             </div>
           </RevealOnScroll>
+          </div>
         </section>
 
         {/* Process Timeline */}
-        <section className="mb-24">
+        <section className="mb-32 relative">
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none"></div>
+          <div className="relative z-10">
           <RevealOnScroll>
             <div className="text-center mb-12">
-              <h2 className="font-display font-bold text-4xl md:text-5xl mb-4">Our Process</h2>
+              <h2 className="font-display font-extrabold text-4xl md:text-5xl mb-4">Our Process</h2>
               <p className="text-gray-600 text-lg">A transparent look at how we delivered this project</p>
             </div>
           </RevealOnScroll>
@@ -223,17 +231,20 @@ export const CaseStudyDetailPage = () => {
               <div className="font-display font-bold text-4xl text-primary">{totalDuration} weeks</div>
             </div>
           </RevealOnScroll>
+          </div>
         </section>
 
         {/* Results Section */}
-        <section className="mb-24">
+        <section className="mb-32 relative">
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none"></div>
+          <div className="relative z-10">
           <RevealOnScroll>
             <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8 md:p-12">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                   <TrendingUp className="text-primary" size={20} />
                 </div>
-                <h2 className="font-display font-bold text-3xl md:text-4xl">Results & Impact</h2>
+                <h2 className="font-display font-extrabold text-3xl md:text-4xl">Results & Impact</h2>
               </div>
               <RevealOnScroll delay={100}>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl">
@@ -253,18 +264,21 @@ export const CaseStudyDetailPage = () => {
               </div>
             </div>
           </RevealOnScroll>
+          </div>
         </section>
 
         {/* Testimonial */}
         {caseStudy.testimonial && (
-          <section className="mb-24">
+          <section className="mb-32 relative">
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none"></div>
+            <div className="relative z-10">
             <RevealOnScroll>
               <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8 md:p-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center">
                     <Shield className="text-yellow-600" size={20} />
                   </div>
-                  <h2 className="font-display font-bold text-3xl md:text-4xl">Client Testimonial</h2>
+                  <h2 className="font-display font-extrabold text-3xl md:text-4xl">Client Testimonial</h2>
                 </div>
                 <RevealOnScroll delay={100}>
                   <div className="flex gap-1 text-yellow-400 mb-6">
@@ -293,13 +307,14 @@ export const CaseStudyDetailPage = () => {
                 </RevealOnScroll>
               </div>
             </RevealOnScroll>
+            </div>
           </section>
         )}
 
         {/* CTA Section */}
         <RevealOnScroll delay={300}>
           <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-8 md:p-12 text-center mb-20">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl mb-4">
               Ready to start your project?
             </h2>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">

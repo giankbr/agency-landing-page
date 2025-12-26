@@ -8,7 +8,7 @@ export const StudioPage = () => (
         <div className="inline-block bg-white border border-gray-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
            <span className="text-xs font-medium text-gray-600">About Sengiku</span>
         </div>
-        <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 text-primary">The Studio</h1>
+        <h1 className="font-display font-extrabold text-5xl md:text-7xl mb-6 text-primary">The Studio</h1>
         <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
           We are a collective of senior engineers, designers, and strategists passionate about building the future of the web.
         </p>
@@ -19,12 +19,14 @@ export const StudioPage = () => (
       <Logos />
     </div>
 
-    <div className="py-20 px-4">
-       <div className="max-w-4xl mx-auto">
+    <div className="py-32 px-4 relative">
+       {/* Subtle transition gradient from top */}
+       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/50 via-transparent to-transparent pointer-events-none"></div>
+       <div className="max-w-4xl mx-auto relative z-10">
           <RevealOnScroll>
             <div className="grid md:grid-cols-2 gap-12 items-center">
                <div>
-                  <h3 className="font-display font-bold text-3xl mb-6">Our Philosophy</h3>
+                  <h3 className="font-display font-extrabold text-3xl mb-6">Our Philosophy</h3>
                   <p className="text-lg text-gray-600 leading-relaxed mb-6">
                     We believe that great software is born at the intersection of design and engineering. We don't just write code; we craft experiences that drive growth.
                   </p>
