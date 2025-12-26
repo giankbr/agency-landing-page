@@ -5,9 +5,17 @@ export interface RevealOnScrollProps {
   delay?: number;
   className?: string;
   key?: React.Key;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'fade' | 'scale';
+  duration?: number;
 }
 
-export const RevealOnScroll = ({ children, delay = 0, className = '' }: RevealOnScrollProps) => {
+export const RevealOnScroll = ({ 
+  children, 
+  delay = 0, 
+  className = '',
+  direction = 'up',
+  duration = 1000
+}: RevealOnScrollProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -32,15 +40,35 @@ export const RevealOnScroll = ({ children, delay = 0, className = '' }: RevealOn
     return () => observer.disconnect();
   }, [delay]);
 
+  const getTransformClasses = () => {
+    if (isVisible) {
+      return 'opacity-100 translate-x-0 translate-y-0 scale-100';
+    }
+
+    switch (direction) {
+      case 'down':
+        return 'opacity-0 translate-y-[-50px]';
+      case 'left':
+        return 'opacity-0 translate-x-[-50px]';
+      case 'right':
+        return 'opacity-0 translate-x-[50px]';
+      case 'fade':
+        return 'opacity-0';
+      case 'scale':
+        return 'opacity-0 scale-95';
+      case 'up':
+      default:
+        return 'opacity-0 translate-y-[50px]';
+    }
+  };
+
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      } ${className}`}
+      className={`transition-all ease-out transform ${getTransformClasses()} ${className}`}
+      style={{ transitionDuration: `${duration}ms` }}
     >
       {children}
     </div>
   );
 };
-

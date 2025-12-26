@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-import { RevealOnScroll } from '../components/ui';
-import { Button } from '../components/ui';
+import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { Button, RevealOnScroll } from '../components/ui';
 
 export const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -25,13 +24,13 @@ export const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -76,6 +75,8 @@ export const ContactPage = () => {
             <div className="inline-block bg-white border border-gray-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
               <span className="text-xs font-medium text-gray-600">Get in Touch</span>
             </div>
+          </RevealOnScroll>
+          <RevealOnScroll delay={100}>
             <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 text-primary">
               Let's build something{' '}
               <span className="relative inline-block">
@@ -83,192 +84,200 @@ export const ContactPage = () => {
                 <span className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -rotate-1"></span>
               </span>
             </h1>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </p>
+          </RevealOnScroll>
+          <RevealOnScroll delay={200}>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
           </RevealOnScroll>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 mb-20">
           {/* Contact Info */}
           <div className="lg:col-span-1">
-            <RevealOnScroll>
+            <RevealOnScroll direction="right">
               <div className="bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm sticky top-32">
                 <h2 className="font-display font-bold text-2xl mb-6">Contact Information</h2>
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  Prefer to reach out directly? Use the contact methods below.
-                </p>
-                
+                <RevealOnScroll delay={100} direction="fade">
+                  <p className="text-gray-600 mb-8 leading-relaxed">Prefer to reach out directly? Use the contact methods below.</p>
+                </RevealOnScroll>
+
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
                     const Icon = info.icon;
                     return (
-                      <a
-                        key={index}
-                        href={info.href}
-                        className="flex items-start gap-4 group"
-                      >
-                        <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
-                          <Icon size={20} className="text-gray-600 group-hover:text-white transition-colors" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-gray-400 mb-1">{info.label}</div>
-                          <div className="text-gray-800 font-medium group-hover:text-primary transition-colors">
-                            {info.value}
+                      <RevealOnScroll key={index} delay={index * 100 + 200} direction="right">
+                        <a href={info.href} className="flex items-start gap-4 group">
+                          <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                            <Icon size={20} className="text-gray-600 group-hover:text-white transition-colors" />
                           </div>
-                        </div>
-                      </a>
+                          <div>
+                            <div className="text-sm font-medium text-gray-400 mb-1">{info.label}</div>
+                            <div className="text-gray-800 font-medium group-hover:text-primary transition-colors">{info.value}</div>
+                          </div>
+                        </a>
+                      </RevealOnScroll>
                     );
                   })}
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-gray-100">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span>Typically responds within 24 hours</span>
+                <RevealOnScroll delay={500} direction="fade">
+                  <div className="mt-8 pt-8 border-t border-gray-100">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                      <span>Typically responds within 24 hours</span>
+                    </div>
                   </div>
-                </div>
+                </RevealOnScroll>
               </div>
             </RevealOnScroll>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <RevealOnScroll delay={200}>
+            <RevealOnScroll delay={200} direction="left">
               <div className="bg-white rounded-[32px] p-8 md:p-12 border border-gray-100 shadow-sm">
                 {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle size={32} className="text-green-600" />
+                  <RevealOnScroll direction="scale">
+                    <div className="text-center py-12">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <CheckCircle size={32} className="text-green-600" />
+                      </div>
+                      <h3 className="font-display font-bold text-2xl mb-2">Message Sent!</h3>
+                      <p className="text-gray-600">We'll get back to you as soon as possible.</p>
                     </div>
-                    <h3 className="font-display font-bold text-2xl mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">
-                      We'll get back to you as soon as possible.
-                    </p>
-                  </div>
+                  </RevealOnScroll>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                          Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
-                          placeholder="john@company.com"
-                        />
-                      </div>
+                      <RevealOnScroll delay={300} direction="up">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                            Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                            placeholder="John Doe"
+                          />
+                        </div>
+                      </RevealOnScroll>
+                      <RevealOnScroll delay={350} direction="up">
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                            Email *
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                            placeholder="john@company.com"
+                          />
+                        </div>
+                      </RevealOnScroll>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
+                      <RevealOnScroll delay={400} direction="up">
+                        <div>
+                          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                            Company
+                          </label>
+                          <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                            placeholder="Company Name"
+                          />
+                        </div>
+                      </RevealOnScroll>
+                      <RevealOnScroll delay={450} direction="up">
+                        <div>
+                          <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+                            Project Type
+                          </label>
+                          <select
+                            id="projectType"
+                            name="projectType"
+                            value={formData.projectType}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                          >
+                            <option value="">Select project type</option>
+                            <option value="frontend">Frontend Development</option>
+                            <option value="fullstack">Full Stack Custom</option>
+                            <option value="cms">Headless CMS</option>
+                            <option value="team">Dedicated Dev Team</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                      </RevealOnScroll>
+                    </div>
+
+                    <RevealOnScroll delay={500} direction="up">
                       <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                          Company
-                        </label>
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
-                          placeholder="Company Name"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
-                          Project Type
+                        <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                          Budget Range
                         </label>
                         <select
-                          id="projectType"
-                          name="projectType"
-                          value={formData.projectType}
+                          id="budget"
+                          name="budget"
+                          value={formData.budget}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                         >
-                          <option value="">Select project type</option>
-                          <option value="frontend">Frontend Development</option>
-                          <option value="fullstack">Full Stack Custom</option>
-                          <option value="cms">Headless CMS</option>
-                          <option value="team">Dedicated Dev Team</option>
-                          <option value="other">Other</option>
+                          <option value="">Select budget range</option>
+                          <option value="5k-10k">$5,000 - $10,000</option>
+                          <option value="10k-25k">$10,000 - $25,000</option>
+                          <option value="25k-50k">$25,000 - $50,000</option>
+                          <option value="50k+">$50,000+</option>
                         </select>
                       </div>
-                    </div>
+                    </RevealOnScroll>
 
-                    <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                        Budget Range
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
-                      >
-                        <option value="">Select budget range</option>
-                        <option value="5k-10k">$5,000 - $10,000</option>
-                        <option value="10k-25k">$10,000 - $25,000</option>
-                        <option value="25k-50k">$25,000 - $50,000</option>
-                        <option value="50k+">$50,000+</option>
-                      </select>
-                    </div>
+                    <RevealOnScroll delay={550} direction="up">
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                          Project Details *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={6}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"
+                          placeholder="Tell us about your project, goals, and timeline..."
+                        />
+                      </div>
+                    </RevealOnScroll>
 
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Project Details *
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={6}
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"
-                        placeholder="Tell us about your project, goals, and timeline..."
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full group"
-                    >
-                      {isSubmitting ? (
-                        'Sending...'
-                      ) : (
-                        <>
-                          Send Message
-                          <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </>
-                      )}
-                    </Button>
+                    <RevealOnScroll delay={600} direction="up">
+                      <Button type="submit" disabled={isSubmitting} className="w-full group">
+                        {isSubmitting ? (
+                          'Sending...'
+                        ) : (
+                          <>
+                            Send Message
+                            <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
+                      </Button>
+                    </RevealOnScroll>
                   </form>
                 )}
               </div>
@@ -279,32 +288,36 @@ export const ContactPage = () => {
         {/* FAQ Section */}
         <RevealOnScroll delay={300}>
           <div className="bg-white rounded-[32px] p-8 md:p-12 border border-gray-100 shadow-sm mb-20">
-            <h2 className="font-display font-bold text-3xl mb-8 text-center">Frequently Asked Questions</h2>
+            <RevealOnScroll delay={100}>
+              <h2 className="font-display font-bold text-3xl mb-8 text-center">Frequently Asked Questions</h2>
+            </RevealOnScroll>
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-display font-bold text-lg mb-2">How long does a project take?</h3>
-                <p className="text-gray-600">
-                  Project timelines vary based on scope and complexity. Most projects range from 4-12 weeks. We'll provide a detailed timeline during our initial consultation.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg mb-2">What's your development process?</h3>
-                <p className="text-gray-600">
-                  We follow an agile methodology with regular sprints, updates, and staging deployments. You'll have full visibility into the development process.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg mb-2">Do you provide ongoing support?</h3>
-                <p className="text-gray-600">
-                  Yes! We offer maintenance and support packages to ensure your project continues to perform optimally after launch.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg mb-2">Can you work with our existing team?</h3>
-                <p className="text-gray-600">
-                  Absolutely. We're experienced in collaborating with in-house teams and can integrate seamlessly into your workflow.
-                </p>
-              </div>
+              <RevealOnScroll delay={200} direction="right">
+                <div>
+                  <h3 className="font-display font-bold text-lg mb-2">How long does a project take?</h3>
+                  <p className="text-gray-600">
+                    Project timelines vary based on scope and complexity. Most projects range from 4-12 weeks. We'll provide a detailed timeline during our initial consultation.
+                  </p>
+                </div>
+              </RevealOnScroll>
+              <RevealOnScroll delay={250} direction="left">
+                <div>
+                  <h3 className="font-display font-bold text-lg mb-2">What's your development process?</h3>
+                  <p className="text-gray-600">We follow an agile methodology with regular sprints, updates, and staging deployments. You'll have full visibility into the development process.</p>
+                </div>
+              </RevealOnScroll>
+              <RevealOnScroll delay={300} direction="right">
+                <div>
+                  <h3 className="font-display font-bold text-lg mb-2">Do you provide ongoing support?</h3>
+                  <p className="text-gray-600">Yes! We offer maintenance and support packages to ensure your project continues to perform optimally after launch.</p>
+                </div>
+              </RevealOnScroll>
+              <RevealOnScroll delay={350} direction="left">
+                <div>
+                  <h3 className="font-display font-bold text-lg mb-2">Can you work with our existing team?</h3>
+                  <p className="text-gray-600">Absolutely. We're experienced in collaborating with in-house teams and can integrate seamlessly into your workflow.</p>
+                </div>
+              </RevealOnScroll>
             </div>
           </div>
         </RevealOnScroll>
@@ -312,4 +325,3 @@ export const ContactPage = () => {
     </div>
   );
 };
-

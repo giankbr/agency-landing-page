@@ -41,40 +41,48 @@ export const Footer = () => {
         <RevealOnScroll>
           <div className="pt-20 pb-16 border-b border-gray-100">
             <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                </span>
-                <span className="text-xs font-semibold">Accepting new clients for Q2 2025</span>
-              </div>
+              <RevealOnScroll delay={100} direction="fade">
+                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
+                  <span className="text-xs font-semibold">Accepting new clients for Q2 2025</span>
+                </div>
+              </RevealOnScroll>
               
-              <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-primary">
-                Ready to build something{' '}
-                <span className="relative inline-block">
-                  <span className="relative z-10">amazing?</span>
-                  <span className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -rotate-1"></span>
-                </span>
-              </h2>
+              <RevealOnScroll delay={200}>
+                <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-primary">
+                  Ready to build something{' '}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">amazing?</span>
+                    <span className="absolute bottom-2 left-0 right-0 h-3 bg-accent/20 -rotate-1"></span>
+                  </span>
+                </h2>
+              </RevealOnScroll>
               
-              <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
-                Let's discuss your project and see how we can help bring your vision to life.
-              </p>
+              <RevealOnScroll delay={300}>
+                <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+                  Let's discuss your project and see how we can help bring your vision to life.
+                </p>
+              </RevealOnScroll>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/contact">
-                  <Button className="group">
-                    Start a Project
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" className="group">
-                    <Mail size={18} />
-                    Book Consultation
-                  </Button>
-                </Link>
-              </div>
+              <RevealOnScroll delay={400}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link to="/contact">
+                    <Button className="group">
+                      Start a Project
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button variant="outline" className="group">
+                      <Mail size={18} />
+                      Book Consultation
+                    </Button>
+                  </Link>
+                </div>
+              </RevealOnScroll>
             </div>
           </div>
         </RevealOnScroll>
@@ -97,26 +105,30 @@ export const Footer = () => {
                   </div>
                 </Link>
                 
-                <p className="text-gray-600 mb-6 max-w-sm leading-relaxed">
-                  We architect scalable, high-performance web solutions for ambitious brands using cutting-edge technology.
-                </p>
+                <RevealOnScroll delay={100}>
+                  <p className="text-gray-600 mb-6 max-w-sm leading-relaxed">
+                    We architect scalable, high-performance web solutions for ambitious brands using cutting-edge technology.
+                  </p>
+                </RevealOnScroll>
                 
                 {/* Social Links */}
-                <div className="flex items-center gap-4">
-                  {socialLinks.map((social, index) => {
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={index}
-                        href={social.href}
-                        aria-label={social.label}
-                        className={`w-10 h-10 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-600 transition-all duration-300 hover:border-gray-300 hover:bg-white hover:shadow-sm ${social.color}`}
-                      >
-                        <Icon size={18} />
-                      </a>
-                    );
-                  })}
-                </div>
+                <RevealOnScroll delay={200}>
+                  <div className="flex items-center gap-4">
+                    {socialLinks.map((social, index) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={index}
+                          href={social.href}
+                          aria-label={social.label}
+                          className={`w-10 h-10 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-600 transition-all duration-300 hover:border-gray-300 hover:bg-white hover:shadow-sm ${social.color}`}
+                        >
+                          <Icon size={18} />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </RevealOnScroll>
               </RevealOnScroll>
             </div>
 
@@ -124,7 +136,7 @@ export const Footer = () => {
             <div className="md:col-span-8 lg:col-span-7">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
                 {/* Product Links */}
-                <RevealOnScroll delay={100}>
+                <RevealOnScroll delay={100} direction="right">
                   <div>
                     <h4 className="font-display font-bold text-sm uppercase tracking-wider text-gray-400 mb-4">
                       Product
@@ -146,7 +158,7 @@ export const Footer = () => {
                 </RevealOnScroll>
 
                 {/* Company Links */}
-                <RevealOnScroll delay={200}>
+                <RevealOnScroll delay={200} direction="right">
                   <div>
                     <h4 className="font-display font-bold text-sm uppercase tracking-wider text-gray-400 mb-4">
                       Company
@@ -173,7 +185,7 @@ export const Footer = () => {
                 </RevealOnScroll>
 
                 {/* Legal Links */}
-                <RevealOnScroll delay={300}>
+                <RevealOnScroll delay={300} direction="right">
                   <div>
                     <h4 className="font-display font-bold text-sm uppercase tracking-wider text-gray-400 mb-4">
                       Legal
@@ -199,24 +211,26 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-100">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>© {currentYear} Sengiku Studio.</span>
-              <span className="hidden sm:inline">All rights reserved.</span>
-            </div>
-            
-            <div className="flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2 text-gray-500">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span>All systems operational</span>
+        <RevealOnScroll delay={400} direction="fade">
+          <div className="py-6 border-t border-gray-100">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-gray-500">
+                <span>© {currentYear} Sengiku Studio.</span>
+                <span className="hidden sm:inline">All rights reserved.</span>
+              </div>
+              
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2 text-gray-500">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span>All systems operational</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </footer>
   );

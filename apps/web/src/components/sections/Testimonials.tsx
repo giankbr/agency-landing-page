@@ -38,58 +38,63 @@ export const Testimonials = () => {
     <section className="py-24 px-4 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side: Static Text */}
-        <RevealOnScroll>
+        <RevealOnScroll direction="right">
           <div>
             <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">We're loved.<br/><span className="text-gray-400">For our code quality.</span></h2>
-            <p className="text-gray-500 text-lg mb-8 max-w-md">
-              See what our partners have to say about their experience working with Sengiku to build their digital products.
-            </p>
-            <Button variant="outline" className="rounded-full">View All Reviews</Button>
+            <RevealOnScroll delay={100} direction="fade">
+              <p className="text-gray-500 text-lg mb-8 max-w-md">
+                See what our partners have to say about their experience working with Sengiku to build their digital products.
+              </p>
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} direction="fade">
+              <Button variant="outline" className="rounded-full">View All Reviews</Button>
+            </RevealOnScroll>
           </div>
         </RevealOnScroll>
         
         {/* Right Side: Carousel */}
-        <div className="relative h-[400px] w-full flex items-center justify-center">
-          {testimonials.map((testimonial, index) => {
-            const isActive = index === activeIndex;
-            return (
-              <div 
-                key={index}
-                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white p-8 rounded-[32px] shadow-xl border border-gray-100 transition-all duration-700 ease-in-out transform
-                  ${isActive ? 'opacity-100 scale-100 z-20 rotate-0' : 'opacity-0 scale-95 z-10 rotate-3'}
-                `}
-              >
-                 <div className="flex gap-1 text-yellow-400 mb-6">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-                 </div>
-                 <p className="text-xl font-medium text-gray-800 mb-8 leading-relaxed">"{testimonial.quote}"</p>
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-                       <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-primary">{testimonial.author}</div>
-                      <div className="text-sm text-gray-500">{testimonial.role}</div>
-                    </div>
-                 </div>
-              </div>
-            );
-          })}
-          
-          {/* Indicators */}
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-primary w-6' : 'bg-gray-300'}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+        <RevealOnScroll delay={200} direction="left">
+          <div className="relative h-[400px] w-full flex items-center justify-center">
+            {testimonials.map((testimonial, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div 
+                  key={index}
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white p-8 rounded-[32px] shadow-xl border border-gray-100 transition-all duration-700 ease-in-out transform
+                    ${isActive ? 'opacity-100 scale-100 z-20 rotate-0' : 'opacity-0 scale-95 z-10 rotate-3'}
+                  `}
+                >
+                   <div className="flex gap-1 text-yellow-400 mb-6">
+                      {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+                   </div>
+                   <p className="text-xl font-medium text-gray-800 mb-8 leading-relaxed">"{testimonial.quote}"</p>
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
+                         <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-primary">{testimonial.author}</div>
+                        <div className="text-sm text-gray-500">{testimonial.role}</div>
+                      </div>
+                   </div>
+                </div>
+              );
+            })}
+            
+            {/* Indicators */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-primary w-6' : 'bg-gray-300'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );
 };
-
